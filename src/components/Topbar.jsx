@@ -3,8 +3,8 @@ import axios from "axios";
 import { useSetRecoilState } from "recoil";
 import { tempUnitAtom, weatherAtom } from "../atoms/weatherAtom";
 import { CityName } from "./CityName";
-
-const api = import.meta.env.VITE_api;
+const baseUri = import.meta.env.VITE_API_BASE_URI;
+const key = import.meta.env.VITE_API_KEY;
 
 
 export function Topbar(){
@@ -18,7 +18,7 @@ export function Topbar(){
 
     const searchClick = async () => {
         //fetch the data
-        const res = await axios.get(`${api.baseUri}?q=${search}&appid=${api.key}`);
+        const res = await axios.get(`${baseUri}?q=${search}&appid=${key}`);
         //set weather atom appropriately
         if(res.status==="404"){
             alert("City Not Found");
