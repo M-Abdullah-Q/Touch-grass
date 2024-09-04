@@ -4,10 +4,7 @@ import { useSetRecoilState } from "recoil";
 import { tempUnitAtom, weatherAtom } from "../atoms/weatherAtom";
 import { CityName } from "./CityName";
 
-const api = {
-    key : '15e4cff619975ece9d6f47af2cf6e59b',
-    baseUri : 'https://api.openweathermap.org/data/2.5/weather'
-}
+const api = import.meta.env.VITE_api;
 
 
 export function Topbar(){
